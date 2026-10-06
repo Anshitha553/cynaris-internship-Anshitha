@@ -1,0 +1,78 @@
+CREATE TABLE sales (
+    sale_id INT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    product VARCHAR(100),
+    category VARCHAR(50),
+    quantity INT,
+    price DECIMAL(10,2),
+    city VARCHAR(50),
+    sales_date DATE,
+    salesperson VARCHAR(100),
+    discount DECIMAL(5,2)
+);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES
+(1, 'Arjun Kumar', 'office chair', 'furniture', 3, 7500.00, 'Hyderabad', '2026-02-05', 'Amit', 7.50);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(2, 'Sneha Rao', 'Keyboard', 'Electronics', 4, 1500.00, 'Chennai', '2026-02-12', 'Rahul', NULL);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(3, 'Vikram Singh', 'Desk', 'Furniture', 2, 12000.00, 'Delhi', '2026-02-20', 'Neha', 5.00);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(4, 'Ananya Patel', 'Monitor', 'Electronics', 2, 18000.00, 'Mumbai', '2026-03-03', 'Amit', 10.00);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(5, 'Kiran Das', 'Printer', 'Electronics', 1, 15000.00, 'Hyderabad', '2026-03-10', 'Rahul', NULL);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(6, 'Meera Nair', 'Bookshelf', 'Furniture', 3, 6000.00, 'Kochi', '2026-03-18', 'Neha', 8.00);
+INSERT INTO sales (sale_id, customer_name, product, category, quantity, price, city, sales_date, salesperson, discount)
+VALUES(7, 'Ravi Verma', 'Laptop Bag', 'Accessories', 6, 2500.00, 'Bangalore', '2026-03-25', 'Amit', 5.00);
+
+select * from sales
+
+SELECT *
+FROM sales
+WHERE category = 'Electronics'
+  AND city = 'Hyderabad';
+  
+sELECT *
+FROM sales
+WHERE city = 'Hyderabad'
+   OR city = 'Mumbai';
+   
+SELECT *
+FROM sales
+WHERE NOT category = 'Electronics';
+
+SELECT *
+FROM sales
+WHERE customer_name LIKE 'R%';
+
+SELECT *
+FROM sales
+WHERE city IN ('Hyderabad', 'Bangalore', 'Chennai');
+
+SELECT product, category, price
+FROM sales
+WHERE price BETWEEN 5000 AND 20000;
+
+SELECT *
+FROM sales
+WHERE discount IS NULL;
+
+SELECT *
+FROM sales
+WHERE category = 'Electronics'
+  AND (city = 'Hyderabad' OR city = 'Mumbai');
+  
+ SELECT customer_name, product, city, price
+FROM sales
+WHERE city NOT IN ('Hyderabad', 'Delhi')
+  AND price BETWEEN 2000 AND 15000;
+
+SELECT customer_name, product, discount
+FROM sales
+WHERE customer_name LIKE 'S%'
+  AND discount IS NULL;
+
+SELECT product, category, price
+FROM sales
+WHERE price BETWEEN 5000 AND 20000;
